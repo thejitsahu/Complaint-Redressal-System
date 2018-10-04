@@ -86,7 +86,7 @@ public class ReplacementDbUtil
 			myStmt = myConn.prepareStatement(sql);
 			
 			myStmt.setString(1,theReplacement.getName());
-			myStmt.setInt(1,theReplacement.getPrice());
+			myStmt.setInt(2,theReplacement.getPrice());
 			
 			myStmt.execute();
 		}
@@ -139,8 +139,8 @@ public class ReplacementDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update replacement "
-					+"set name=?,price=?"
-					+"where id =?";
+					+"set name=?, price=?"
+					+" where id =?";
 		myStmt	=	myConn.prepareStatement(sql);
 		myStmt.setString(1,theReplacement.getName());
 		myStmt.setInt(2,theReplacement.getPrice());

@@ -95,7 +95,7 @@ public class ReplacementControllerServlet extends HttpServlet
 	}
 	private void updateReplacement(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		int id = Integer.parseInt(request.getParameter("theReplacmentId"));
+		int id = Integer.parseInt(request.getParameter("theReplacementId"));
 		String name = request.getParameter("name");
 		int price = Integer.parseInt(request.getParameter("price"));
 		Replacement theReplacement = new Replacement(id,name,price);
