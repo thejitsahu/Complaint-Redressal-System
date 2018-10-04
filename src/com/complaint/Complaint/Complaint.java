@@ -4,22 +4,33 @@ public class Complaint
 {
 	private int complaintId;
 	private int productId;
+	private int engineerId;
 	private String details;
 	private String status;
 	
-	public Complaint(int complaintId, int productId, String details, String status) 
+	public Complaint(int complaintId, int productId,int engineerId, String details, String status) 
 	{
 		this.complaintId = complaintId;
 		this.productId = productId;
+		this.engineerId = engineerId;
 		this.details = details;
 		this.status = status;
 	}
 
-	public Complaint(int productId, String details, String status)
+	public Complaint(int productId, int engineerId,String details, String status)
 	{
 		this.productId = productId;
+		this.engineerId = engineerId;
 		this.details = details;
 		this.status = status;
+	}
+
+	public int getEngineerId() {
+		return engineerId;
+	}
+
+	public void setEngineerId(int engineerId) {
+		this.engineerId = engineerId;
 	}
 
 	public int getComplaintId() {

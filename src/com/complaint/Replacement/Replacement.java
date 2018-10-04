@@ -2,50 +2,46 @@ package com.complaint.Replacement;
 
 public class Replacement 
 {
-	private int replaceId;
-	private String productId;
+	private int id;
+	private String name;
 	private int price;
 	
-	public Replacement(int replaceId, String productId, int price) 
+	public Replacement(int id, String name, int price)
 	{
-		this.replaceId = replaceId;
-		this.productId = productId;
-		this.price = price;
-	}
-	
-	public Replacement(String productId, int price) 
-	{
-		this.productId = productId;
+		this.id = id;
+		this.name = name;
 		this.price = price;
 	}
 
-	public int getReplaceId() 
+	public Replacement(String name, int price)
 	{
-		return replaceId;
+		this.name = name;
+		this.price = price;
 	}
 
-	public void setReplaceId(int replaceId) 
-	{
-		this.replaceId = replaceId;
+	public int getId() {
+		return id;
 	}
 
-	public String getProductId() 
-	{
-		return productId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
-	public void setProductId(String productId) 
-	{
-		this.productId = productId;
+	public String getName() {
+		return name;
 	}
 
-	public int getPrice() 
-	{
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) 
-	{
+	public void setPrice(int price) {
 		this.price = price;
 	}
+	
+	
 }

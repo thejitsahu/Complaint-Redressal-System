@@ -3,35 +3,31 @@ package com.complaint.Engineer;
 public class Engineer 
 {
 	private int id;
-	private int cId;
-	private int name;
-	public Engineer(int id, int cId, int name) 
+	private String name;
+
+	public Engineer(int id, String name) 
 	{
 		this.id = id;
-		this.cId = cId;
 		this.name = name;
 	}
-	public Engineer(int cId, int name) 
+	public Engineer(String name) 
 	{
-		this.cId = cId;
 		this.name = name;
 	}
-	public int getId() {
+	public int getId() 
+	{
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(int id) 
+	{
 		this.id = id;
 	}
-	public int getcId() {
-		return cId;
-	}
-	public void setcId(int cId) {
-		this.cId = cId;
-	}
-	public int getName() {
+	public String getName() 
+	{
 		return name;
 	}
-	public void setName(int name) {
+	public void setName(String name) 
+	{
 		this.name = name;
 	}
 }
