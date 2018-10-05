@@ -18,6 +18,12 @@ public class Complaint
 		this.details = details;
 		this.status = status;
 	}
+	
+	
+	public Complaint(String details) 
+	{
+		this.details = details;
+	}
 
 	public int getcId() {
 		return cId;
