@@ -35,10 +35,11 @@ public class EngineerDbUtil
 			
 			while(myRs.next())
 			{
-				int id = myRs.getInt("id");
+				int id = myRs.getInt("eid");
+				int cid = myRs.getInt("cid");
 				String name = myRs.getString("name");
 						
-				Engineer tempEngineer = new Engineer(id,name);
+				Engineer tempEngineer = new Engineer(id,cid,name);
 				engineers.add(tempEngineer);
 			}
 			return engineers;
@@ -107,14 +108,15 @@ public class EngineerDbUtil
 		{
 			engineerId = Integer.parseInt(theEngineerId);
 			myConn = dataSource.getConnection();	
-			String sql = "select * from engineer where id=?";
+			String sql = "select * from engineer where eid=?";
 			myStmt	=	myConn.prepareStatement(sql);
 			myStmt.setInt(1, engineerId);
 			myRs = myStmt.executeQuery();
 			if (myRs.next())
 			{
 				String name = myRs.getString("name");
-				theEngineer = new Engineer(engineerId,name);
+				int cid = myRs.getInt("cid");
+				theEngineer = new Engineer(engineerId,cid,name);
 			}
 			else
 			{
@@ -137,11 +139,12 @@ public class EngineerDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update engineer "
-					+"set name=?"
-					+"where id =?";
+					+"set name=?, cid=? "
+					+" where eid = ?";
 		myStmt	=	myConn.prepareStatement(sql);
 		myStmt.setString(1,theEngineer.getName());
-		myStmt.setInt(2,theEngineer.getId());
+		myStmt.setInt(2,theEngineer.getcId());
+		myStmt.setInt(3,theEngineer.geteId());
 		myStmt.execute();
 		}
 		finally
@@ -161,7 +164,7 @@ public class EngineerDbUtil
 			
 			myConn = dataSource.getConnection();
 			
-			String sql = "delete from engineer where id=?";
+			String sql = "delete from engineer where eid=?";
 			
 			myStmt = myConn.prepareStatement(sql);
 			

@@ -81,8 +81,9 @@ private void deleteEngineer(HttpServletRequest request, HttpServletResponse resp
 private void updateEngineer(HttpServletRequest request, HttpServletResponse response) throws Exception
 {
 	int id = Integer.parseInt(request.getParameter("theEngineerId"));
+	int cId = Integer.parseInt(request.getParameter("cId"));
 	String name = request.getParameter("name");
-	Engineer theEngineer = new Engineer(id,name);
+	Engineer theEngineer = new Engineer(id,cId,name);
 	engineerDbUtil.updateEngineer(theEngineer);
 	listEngineers(request,response);
 }

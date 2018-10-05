@@ -84,12 +84,13 @@ public class StudentControllerServlet extends HttpServlet {
 	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		int id = Integer.parseInt(request.getParameter("theProductId"));
+		int cId = Integer.parseInt(request.getParameter("cId"));
 		String name = request.getParameter("name");
 		String type  = request.getParameter("type");
 		String company     = request.getParameter("company");
 		String warantyDate = request.getParameter("warantyDate");
 		
-		Product theProduct = new Product(id,name,type,company,warantyDate);
+		Product theProduct = new Product(id,cId,name,type,company,warantyDate);
 		productDbUtil.updateProduct(theProduct);
 		listProducts(request,response);
 	}

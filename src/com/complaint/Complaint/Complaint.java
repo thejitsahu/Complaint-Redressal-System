@@ -2,51 +2,29 @@ package com.complaint.Complaint;
 
 public class Complaint 
 {
-	private int complaintId;
-	private int productId;
-	private int engineerId;
+	private int cId;
 	private String details;
 	private String status;
-	
-	public Complaint(int complaintId, int productId,int engineerId, String details, String status) 
+
+	public Complaint(int cId, String details, String status)
 	{
-		this.complaintId = complaintId;
-		this.productId = productId;
-		this.engineerId = engineerId;
+		this.cId = cId;
 		this.details = details;
 		this.status = status;
 	}
 
-	public Complaint(int productId, int engineerId,String details, String status)
+	public Complaint(String details, String status)
 	{
-		this.productId = productId;
-		this.engineerId = engineerId;
 		this.details = details;
 		this.status = status;
 	}
 
-	public int getEngineerId() {
-		return engineerId;
+	public int getcId() {
+		return cId;
 	}
 
-	public void setEngineerId(int engineerId) {
-		this.engineerId = engineerId;
-	}
-
-	public int getComplaintId() {
-		return complaintId;
-	}
-
-	public void setComplaintId(int complaintId) {
-		this.complaintId = complaintId;
-	}
-
-	public int getProductId() {
-		return productId;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
+	public void setcId(int cId) {
+		this.cId = cId;
 	}
 
 	public String getDetails() {
@@ -64,5 +42,4 @@ public class Complaint
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	
 }

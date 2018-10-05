@@ -3,6 +3,7 @@ package com.complaint.Replacement;
 public class Replacement 
 {
 	private int id;
+	private int cId;
 	private String name;
 	private int price;
 	
@@ -17,6 +18,25 @@ public class Replacement
 	{
 		this.name = name;
 		this.price = price;
+	}
+	
+
+	public Replacement(int id, int cId, String name, int price)
+	{
+		this.id = id;
+		this.cId = cId;
+		this.name = name;
+		this.price = price;
+	}
+
+
+
+	public int getcId() {
+		return cId;
+	}
+
+	public void setcId(int cId) {
+		this.cId = cId;
 	}
 
 	public int getId() {

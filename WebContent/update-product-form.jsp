@@ -11,6 +11,10 @@
  <table>
  <tbody>
  <tr>
+ <td><label>CustomerID:</label></td>
+ <td><input type="text" name="cId" value="${THE_PRODUCT.cId}"/></td>
+ </tr>
+ <tr>
  <td><label>Name:</label></td>
  <td><input type="text" name="name" value="${THE_PRODUCT.name}"/></td>
  </tr>

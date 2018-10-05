@@ -93,15 +93,18 @@ public class ReplacementControllerServlet extends HttpServlet
 		replacementDbUtil.deleteReplacement(theReplacementId);
 		listReplacements(request,response);
 	}
+	
 	private void updateReplacement(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
 		int id = Integer.parseInt(request.getParameter("theReplacementId"));
+		int cId = Integer.parseInt(request.getParameter("theComplaintId"));
 		String name = request.getParameter("name");
 		int price = Integer.parseInt(request.getParameter("price"));
-		Replacement theReplacement = new Replacement(id,name,price);
+		Replacement theReplacement = new Replacement(id,cId,name,price);
 		replacementDbUtil.updateReplacement(theReplacement);
 		listReplacements(request,response);
 	}
+	
 	private void loadReplacement(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
 		String theReplacementId		=	request.getParameter("replacementId");
@@ -111,6 +114,7 @@ public class ReplacementControllerServlet extends HttpServlet
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/update-replacement-form.jsp");
 		dispatcher.forward(request, response);
 	}
+	
 	private void addReplacement(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
 		String name  = request.getParameter("name");

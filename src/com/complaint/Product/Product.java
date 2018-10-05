@@ -3,6 +3,7 @@ package com.complaint.Product;
 public class Product 
 {
 	private int serialId;
+	private int cId;
 	private String name;
 	private String type;
 	private String company;
@@ -23,6 +24,25 @@ public class Product
 		this.type = type;
 		this.company = company;
 		this.warantyDate = warantyDate;
+	}
+
+	public Product(int serialId, int cId, String name, String type, String company, String warantyDate) 
+	{
+		this.serialId = serialId;
+		this.cId = cId;
+		this.name = name;
+		this.type = type;
+		this.company = company;
+		this.warantyDate = warantyDate;
+	}
+	public int getcId() 
+	{
+		return cId;
+	}
+
+	public void setcId(int cId) 
+	{
+		this.cId = cId;
 	}
 
 	public int getSerialId() 

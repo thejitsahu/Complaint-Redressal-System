@@ -11,6 +11,10 @@
  <table>
  <tbody>
  <tr>
+ <td><label>CustomerID:</label></td>
+ <td><input type="text" name="theComplaintId" value="${THE_REPLACEMENT.cId}"/></td>
+ </tr>
+ <tr>
  <td><label>Name:</label></td>
  <td><input type="text" name="name" value="${THE_REPLACEMENT.name}"/></td>
  </tr>

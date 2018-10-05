@@ -35,10 +35,11 @@ public class ReplacementDbUtil
 			
 			while(myRs.next())
 			{
-				int id = myRs.getInt("id");
+				int id = myRs.getInt("rid");
+				int cId = myRs.getInt("cid");
 				String name = myRs.getString("name");
 				int price = myRs.getInt("price");		
-				Replacement tempReplacement = new Replacement(id,name,price);
+				Replacement tempReplacement = new Replacement(id,cId,name,price);
 				replacements.add(tempReplacement);
 			}
 			return replacements;
@@ -108,15 +109,16 @@ public class ReplacementDbUtil
 		{
 			replacementId = Integer.parseInt(theReplacementId);
 			myConn = dataSource.getConnection();	
-			String sql = "select * from replacement where id=?";
+			String sql = "select * from replacement where rid=?";
 			myStmt	=	myConn.prepareStatement(sql);
 			myStmt.setInt(1, replacementId);
 			myRs = myStmt.executeQuery();
 			if (myRs.next())
 			{
+				int cId = myRs.getInt("cid");
 				String name = myRs.getString("name");
 				int price = myRs.getInt("price");
-				theReplacement = new Replacement(replacementId,name,price);
+				theReplacement = new Replacement(replacementId,cId,name,price);
 			}
 			else
 			{
@@ -139,12 +141,13 @@ public class ReplacementDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update replacement "
-					+"set name=?, price=?"
-					+" where id =?";
+					+"set cid=?, name=?, price=?"
+					+" where rid =?";
 		myStmt	=	myConn.prepareStatement(sql);
-		myStmt.setString(1,theReplacement.getName());
-		myStmt.setInt(2,theReplacement.getPrice());
-		myStmt.setInt(3,theReplacement.getId());
+		myStmt.setInt(1,theReplacement.getcId());
+		myStmt.setString(2,theReplacement.getName());
+		myStmt.setInt(3,theReplacement.getPrice());
+		myStmt.setInt(4,theReplacement.getId());
 		myStmt.execute();
 		}
 		finally
@@ -164,7 +167,7 @@ public class ReplacementDbUtil
 			
 			myConn = dataSource.getConnection();
 			
-			String sql = "delete from replacement where id=?";
+			String sql = "delete from replacement where rid=?";
 			
 			myStmt = myConn.prepareStatement(sql);
 			

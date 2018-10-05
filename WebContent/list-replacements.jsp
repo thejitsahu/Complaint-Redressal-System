@@ -10,7 +10,8 @@
 <input type="button" value="Add Replacement" onclick="window.location.href='add-replacement-form.jsp'; return false;" />
 <table>
 	<tr>
-		<th>Id</th>
+		<th>ID</th>
+		<th>CustomerID</th>
 		<th>Name</th>
 		<th>Price</th>
 		
@@ -27,6 +28,7 @@
 					</c:url>
 	<tr>
 		<td> ${temp.id} </td>
+		<td>${temp.cId }</td>
 		<td> ${temp.name} </td>
 		<td> ${temp.price} </td>
 		<td> 

@@ -38,12 +38,13 @@ public class ProductDbUtil
 			while(myRs.next())
 			{
 				int serialId = myRs.getInt("serialid");
+				int cId = myRs.getInt("cid");
 				String name = myRs.getString("name");
 				String type = myRs.getString("type");
 				String company = myRs.getString("company");
 				String warantyDate = myRs.getString("warantydate");
 				
-				Product tempStudent = new Product(serialId,name,type,company,warantyDate);
+				Product tempStudent = new Product(serialId,cId,name,type,company,warantyDate);
 				products.add(tempStudent);
 			}
 			return products;
@@ -123,13 +124,14 @@ public class ProductDbUtil
 			myStmt.setInt(1, productId);
 			myRs = myStmt.executeQuery();
 			if (myRs.next())
-			{
+			{	
+				int cId		= myRs.getInt("cid");
 				String name = myRs.getString("name");
 				String type = myRs.getString("type");
 				String company	= myRs.getString("company");
 				String warantyDate	= myRs.getString("warantydate");
 				
-				theProduct = new Product(productId,name,type,company,warantyDate);
+				theProduct = new Product(productId,cId,name,type,company,warantyDate);
 			}
 			else
 			{
@@ -152,14 +154,15 @@ public class ProductDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update product "
-					+"set name=?, type=?, company=?, warantydate=?"
+					+"set cid=?, name=?, type=?, company=?, warantydate=?"
 					+"where serialid =?";
 		myStmt	=	myConn.prepareStatement(sql);
-		myStmt.setString(1,theProduct.getName());
-		myStmt.setString(2,theProduct.getType());
-		myStmt.setString(3,theProduct.getCompany());
-		myStmt.setString(4,theProduct.getWarantyDate());
-		myStmt.setInt(5,theProduct.getSerialId());
+		myStmt.setInt(1,theProduct.getcId());
+		myStmt.setString(2,theProduct.getName());
+		myStmt.setString(3,theProduct.getType());
+		myStmt.setString(4,theProduct.getCompany());
+		myStmt.setString(5,theProduct.getWarantyDate());
+		myStmt.setInt(6,theProduct.getSerialId());
 		myStmt.execute();
 		}
 		finally

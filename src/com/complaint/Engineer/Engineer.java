@@ -2,26 +2,44 @@ package com.complaint.Engineer;
 
 public class Engineer 
 {
-	private int id;
+	private int eId;
+	private int cId;
 	private String name;
 
-	public Engineer(int id, String name) 
+	public Engineer(int eId, String name) 
 	{
-		this.id = id;
+		this.eId = eId;
 		this.name = name;
 	}
+	
 	public Engineer(String name) 
 	{
 		this.name = name;
 	}
-	public int getId() 
+		
+	public Engineer(int eId, int cId, String name) 
 	{
-		return id;
+		this.eId = eId;
+		this.cId = cId;
+		this.name = name;
 	}
-	public void setId(int id) 
-	{
-		this.id = id;
+	
+	public int geteId() {
+		return eId;
 	}
+
+	public void seteId(int eId) {
+		this.eId = eId;
+	}
+
+	public int getcId() {
+		return cId;
+	}
+
+	public void setcId(int cId) {
+		this.cId = cId;
+	}
+
 	public String getName() 
 	{
 		return name;

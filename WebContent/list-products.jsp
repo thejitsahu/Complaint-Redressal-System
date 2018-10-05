@@ -10,7 +10,8 @@
 <input type="button" value="Add Product" onclick="window.location.href='add-product-form.jsp'; return false;" />
 <table>
 	<tr>
-		<th>Serial ID</th>
+		<th>SerialID</th>
+		<th>CustomerID</th>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Company</th>
@@ -28,6 +29,7 @@
 					</c:url>
 	<tr>
 		<td> ${temp.serialId} </td>
+		<td> ${temp.cId} </td>
 		<td> ${temp.name} </td>
 		<td> ${temp.type} </td>
 		<td> ${temp.company} </td>
