@@ -12,9 +12,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
-import com.complaint.Engineer.Engineer;
-import com.complaint.Engineer.EngineerDbUtil;
-
 
 @WebServlet("/ReplacementControllerServlet")
 public class ReplacementControllerServlet extends HttpServlet 
