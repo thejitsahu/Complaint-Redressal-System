@@ -5,6 +5,7 @@
 <body>
  <h2>Complaint Management</h2>
  <h3>Add Engineer</h3>
+ <%@include file="navbar.html" %><br />
  <form action="EngineerControllerServlet" method="POST">
  <input type="hidden" name = "command" value="ADD" />
  <table>

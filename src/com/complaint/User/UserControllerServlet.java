@@ -87,7 +87,7 @@ public class UserControllerServlet extends HttpServlet
 	private void deleteUser(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
 		String theUserId = request.getParameter("userId");
-		userDbUtil.deleteReplacement(theUserId);
+		userDbUtil.deleteUser(theUserId);
 		listUsers(request,response);
 	}
 	
@@ -97,7 +97,7 @@ public class UserControllerServlet extends HttpServlet
 		String name = request.getParameter("username");
 		String email = request.getParameter("email");
 		String password = request.getParameter("password");
-		User theUser = new User(id,name,email,password);
+		User theUser = new User(id,email,name,password);
 		userDbUtil.updateUser(theUser);
 		listUsers(request,response);
 	}
@@ -119,9 +119,11 @@ public class UserControllerServlet extends HttpServlet
 		String password2  = request.getParameter("password2");
 		if(password1.equals(password2))
 		{
-			User theUser	=	new User(name,email,password1);
+			User theUser	=	new User(email,name,password1);
 			userDbUtil.addUser(theUser); 
 			listUsers(request,response);
 		}
+		else
+			listUsers(request,response);
 	}
 }

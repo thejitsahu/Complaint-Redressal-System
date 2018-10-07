@@ -5,8 +5,9 @@
 <body>
  <h2>Complaint Management</h2>
  <h3>Add User</h3>
+ <%@include file="navbar.html" %><br />
  <form action="UserControllerServlet" method="POST">
- <input type="hidden" name = "command" value="ADD" />
+ <input type="hidden" name="command" value="ADD" />
  <table>
  <tbody>
  <tr>

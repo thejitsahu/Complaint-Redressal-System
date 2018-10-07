@@ -5,6 +5,7 @@
 <body>
  <h2>Complaint Tracker App</h2>
  <h3>Update User</h3>
+ <%@include file="navbar.html" %><br />
  <form action="UserControllerServlet" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theUserId" value="${THE_USER.id }" />
@@ -12,7 +13,7 @@
  <tbody>
  <tr>
  <td><label>Username:</label></td>
- <td><input type="text" name="username" value="${THE_USER.name}"/></td>
+ <td><input type="text" name="username" value="${THE_USER.username}"/></td>
  </tr>
  <tr>
  <td><label>Email:</label></td>

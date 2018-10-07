@@ -7,6 +7,7 @@
 </head>
 <body>
 <h2>Complaint Management</h2>
+<%@include file="navbar.html" %><br />
 <input type="button" value="Add User" onclick="window.location.href='add-user-form.jsp'; return false;" />
 <table>
 	<tr>
@@ -27,7 +28,7 @@
 	<tr>
 		<td> ${temp.id} </td>
 		<td> ${temp.email} </td>
-		<td> ${temp.name} </td>
+		<td> ${temp.username} </td>
 		<td> 
 							<a href="${tempLink}">Update</a> 
 							|

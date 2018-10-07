@@ -7,6 +7,7 @@
 </head>
 <body>
 <h2>Complaint Management</h2>
+<%@include file="navbar.html" %><br />
 <input type="button" value="Add Complaint" onclick="window.location.href='add-complaint-form.jsp'; return false;" />
 <table>
 	<tr>

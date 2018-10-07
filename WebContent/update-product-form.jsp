@@ -5,6 +5,7 @@
 <body>
  <h2>FooBar University</h2>
  <h3>Update Student</h3>
+ <%@include file="navbar.html" %><br />
  <form action="StudentControllerServlet" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theProductId" value="${THE_PRODUCT.serialId }" />

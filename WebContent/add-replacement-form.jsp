@@ -5,6 +5,7 @@
 <body>
  <h2>Complaint Management</h2>
  <h3>Add Replacement</h3>
+ <%@include file="navbar.html" %><br />
  <form action="ReplacementControllerServlet" method="POST">
  <input type="hidden" name = "command" value="ADD" />
  <table>
