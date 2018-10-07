@@ -47,7 +47,7 @@ public class LoginServlet extends HttpServlet
 			isAuth = userDbUtil.authenicate(user, pass);
 			if(isAuth)
 			{	System.out.println("Vimal");
-				response.sendRedirect("/UserControllerServlet");
+				response.sendRedirect("/complaint/UserControllerServlet");
 			}
 		}
 		catch(Exception exc)
