@@ -18,6 +18,7 @@ public class LoginServlet extends HttpServlet
 {
 		
 	private UserDbUtil userDbUtil; 
+	
 	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
 	
@@ -42,7 +43,7 @@ public class LoginServlet extends HttpServlet
 		try
 		{
 			String user,pass;
-			boolean isAuth;
+			boolean isAuth=false;
 			user = request.getParameter("username");
 			pass = request.getParameter("password");
 			isAuth = userDbUtil.authenicate(user, pass);
@@ -50,7 +51,13 @@ public class LoginServlet extends HttpServlet
 			{	System.out.println("Vimal");
 				HttpSession session = request.getSession();
 				session.setAttribute("name", user);
-				response.sendRedirect("/complaint/UserControllerServlet");
+				response.sendRedirect("/complaint/ComplaintControllerServlet");
+			}
+			else
+			{
+				HttpSession session = request.getSession();
+				session.setAttribute("name", "");
+				response.sendRedirect("/complaint/login.jsp");
 			}
 		}
 		catch(Exception exc)

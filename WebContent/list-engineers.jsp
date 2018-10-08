@@ -7,7 +7,7 @@
 </head>
 <body>
 <h2>Complaint Management</h2>
-<%@include file="navbar.html" %><br />
+<%@include file="navbar.jsp" %><br />
 <input type="button" value="Add Engineer" onclick="window.location.href='add-engineer-form.jsp'; return false;" />
 <table>
 	<tr>

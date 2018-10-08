@@ -5,7 +5,7 @@
 <body>
  <h2>Complaint Tracker App</h2>
  <h3>Update Complaint</h3>
- <%@include file="navbar.html" %><br />
+ <%@include file="navbar.jsp" %><br />
  <form action="ComplaintControllerServlet" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theComplaintId" value="${THE_COMPLAINT.cId }" />

@@ -5,7 +5,7 @@
 <body>
  <h2>Complaint Management</h2>
  <h3>Add Complaint</h3>
- <%@include file="navbar.html" %><br />
+ <%@include file="navbar.jsp" %><br />
  <form action="ComplaintControllerServlet" method="POST">
  <input type="hidden" name = "command" value="ADD" />
  <table>

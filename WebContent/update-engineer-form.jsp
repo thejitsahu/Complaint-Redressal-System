@@ -5,7 +5,7 @@
 <body>
  <h2>FooBar University</h2>
  <h3>Update Student</h3>
- <%@include file="navbar.html" %><br />
+ <%@include file="navbar.jsp" %><br />
  <form action="EngineerControllerServlet" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theEngineerId" value="${THE_ENGINEER.eId }" />

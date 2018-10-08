@@ -209,7 +209,8 @@ public class UserDbUtil
 			}
 			else
 			{
-				throw new Exception("Could not find user id: "+userName);
+//				throw new Exception("Could not find user id: "+userName);
+				return false;
 			}
 			return auth;
 		}

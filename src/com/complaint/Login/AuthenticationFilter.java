@@ -12,7 +12,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebFilter(urlPatterns={"/add-product-form.jsp"})
+@WebFilter(urlPatterns={"/add-replacement-form.jsp","/add-engineer-form.jsp","/add-user-form.jsp",
+		"/update-engineer-form.jsp","/list-engineers.jsp","/update-replacement-form.jsp","/list-replacements.jsp","/list-users.jsp"
+		,"/EngineerControllerServlet","/ReplacementControllerServlet"})
 public class AuthenticationFilter implements Filter 
 {
 	public void init(FilterConfig fConfig) throws ServletException 
