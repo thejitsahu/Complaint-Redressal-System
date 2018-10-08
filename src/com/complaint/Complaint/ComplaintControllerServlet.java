@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @WebServlet("/ComplaintControllerServlet")
@@ -75,10 +76,23 @@ public class ComplaintControllerServlet extends HttpServlet
 	
 	private void listComplaints(HttpServletRequest request, HttpServletResponse response) throws Exception
 	{
-		List<Complaint> complaints = complaintDbUtil.getComplaints();
-		request.setAttribute("COMPLAINT_LIST", complaints);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/list-complaints.jsp");
-		dispatcher.forward(request, response);
+		HttpSession session = request.getSession();
+		String user = (String)session.getAttribute("name");
+		int uid = (int)session.getAttribute("uid");
+		if(user.equals("vimal"))
+		{
+			List<Complaint> complaints = complaintDbUtil.getComplaints();
+			request.setAttribute("COMPLAINT_LIST", complaints);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-complaints.jsp");
+			dispatcher.forward(request, response);
+		}
+		else
+		{
+			List<Complaint> complaints = complaintDbUtil.getComplaints(uid);
+			request.setAttribute("COMPLAINT_LIST", complaints);
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/list-complaints.jsp");
+			dispatcher.forward(request, response);
+		}
 	}
 	
 	private void deleteComplaint(HttpServletRequest request, HttpServletResponse response) throws Exception 
@@ -111,8 +125,10 @@ public class ComplaintControllerServlet extends HttpServlet
 	
 	private void addComplaint(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
+		HttpSession session = request.getSession();
+		int userId = (int) session.getAttribute("uid");
 		String details  = request.getParameter("details");
-		Complaint theComplaint	=	new Complaint(details);
+		Complaint theComplaint	=	new Complaint(userId,details);
 		complaintDbUtil.addComplaint(theComplaint); 
 		listComplaints(request,response);
 		

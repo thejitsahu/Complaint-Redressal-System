@@ -48,6 +48,37 @@ private DataSource dataSource;
 			close(myConn,myStmt,myRs);
 		}		
 	}
+	public List<Complaint> getComplaints(int uid) throws Exception
+	{
+		List<Complaint> complaints = new ArrayList<>();
+		
+		Connection myConn = null;
+		Statement myStmt  = null;
+		ResultSet myRs    = null;
+		
+		try
+		{
+			myConn     = dataSource.getConnection();
+			String sql = "select * from complaint where uid="+uid;
+			myStmt     = myConn.createStatement();
+			myRs       = myStmt.executeQuery(sql);
+			
+			while(myRs.next())
+			{
+				int id = myRs.getInt("cid");
+				String details = myRs.getString("details");
+				String status = myRs.getString("status");
+						
+				Complaint tempComplaint = new Complaint(id,details,status);
+				complaints.add(tempComplaint);
+			}
+			return complaints;
+		}
+		finally
+		{
+			close(myConn,myStmt,myRs);
+		}		
+	}
 	private void close(Connection myConn, Statement myStmt, ResultSet myRs) 
 	{
 		try
@@ -80,12 +111,12 @@ private DataSource dataSource;
 			myConn = dataSource.getConnection();
 			
 			String sql = "insert into complaint"
-						+"(details)"
-						+"values (?)";
+						+"(uid,details)"
+						+"values (?,?)";
 			
 			myStmt = myConn.prepareStatement(sql);
-			
-			myStmt.setString(1,theComplaint.getDetails());
+			myStmt.setInt(1,theComplaint.getUid());
+			myStmt.setString(2,theComplaint.getDetails());
 			
 			myStmt.execute();
 		}

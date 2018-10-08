@@ -49,7 +49,8 @@ public class LoginServlet extends HttpServlet
 			pass = request.getParameter("password");
 			isAuth = userDbUtil.authenicate(user, pass);
 			if(isAuth)
-			{	System.out.println("Vimal");
+			{	
+				System.out.println("Vimal");
 				HttpSession session = request.getSession();
 				session.setAttribute("name", user);
 				id = userDbUtil.getUserId(user);
