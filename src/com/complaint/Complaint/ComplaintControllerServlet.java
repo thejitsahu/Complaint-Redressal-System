@@ -67,6 +67,7 @@ public class ComplaintControllerServlet extends HttpServlet
 		try
 		{
 			addComplaint(request,response);
+			response.sendRedirect("/complaint/add-product-form.jsp");
 		}
 		catch(Exception exc)
 		{
@@ -130,6 +131,7 @@ public class ComplaintControllerServlet extends HttpServlet
 		String details  = request.getParameter("details");
 		Complaint theComplaint	=	new Complaint(userId,details);
 		complaintDbUtil.addComplaint(theComplaint); 
+		session.setAttribute("Details", details);
 		listComplaints(request,response);
 		
 	}

@@ -88,16 +88,17 @@ public class ProductDbUtil
 			myConn = dataSource.getConnection();
 			
 			String sql = "insert into product"
-						+"(serialid,name,type,company,warantydate)"
-						+"values (?,?,?,?,?)";
+						+"(serialid,cid,name,type,company,warantydate)"
+						+"values (?,?,?,?,?,?)";
 			
 			myStmt = myConn.prepareStatement(sql);
 			
 			myStmt.setInt(1,theProduct.getSerialId());
-			myStmt.setString(2,theProduct.getName());
-			myStmt.setString(3,theProduct.getType());
-			myStmt.setString(4,theProduct.getCompany());
-			myStmt.setString(5,theProduct.getWarantyDate());
+			myStmt.setInt(2,theProduct.getcId());
+			myStmt.setString(3,theProduct.getName());
+			myStmt.setString(4,theProduct.getType());
+			myStmt.setString(5,theProduct.getCompany());
+			myStmt.setString(6,theProduct.getWarantyDate());
 			
 			myStmt.execute();
 		}

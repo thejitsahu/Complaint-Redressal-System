@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.List;
 
 import javax.annotation.Resource;
+import com.complaint.Complaint.ComplaintDbUtil;
+
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,7 +21,7 @@ import javax.sql.DataSource;
 @WebServlet("/StudentControllerServlet")
 public class StudentControllerServlet extends HttpServlet {
 	private ProductDbUtil productDbUtil;
-	
+	private ComplaintDbUtil complaintDbUtil;
 	@Resource(name="jdbc/web_student_tracker")
 	private DataSource dataSource;
 	
@@ -28,6 +31,8 @@ public class StudentControllerServlet extends HttpServlet {
 		try
 		{
 			productDbUtil = new ProductDbUtil(dataSource);
+			complaintDbUtil = new ComplaintDbUtil(dataSource);
+		
 		}
 		catch(Exception exc)
 		{
@@ -106,13 +111,18 @@ public class StudentControllerServlet extends HttpServlet {
 	}
 	private void addProduct(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
+		javax.servlet.http.HttpSession session = request.getSession();
+		String details =(String) session.getAttribute("Details");
+		int cid;
+		cid = complaintDbUtil.getComplaintId(details);
+		System.out.println("cid"+cid);
 		int serialId = Integer.parseInt(request.getParameter("serialId"));
 		String name  = request.getParameter("name");
 		String type     = request.getParameter("type");
 		String company     = request.getParameter("company");
 		String warantyDate     = request.getParameter("warantyDate");
 		
-		Product theProduct	=	new Product(serialId,name,type,company,warantyDate);
+		Product theProduct	=	new Product(serialId,cid,name,type,company,warantyDate);
 		
 		productDbUtil.addProduct(theProduct); 
 		

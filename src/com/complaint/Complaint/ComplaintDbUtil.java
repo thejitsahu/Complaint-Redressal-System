@@ -210,6 +210,37 @@ private DataSource dataSource;
 		}
 		
 	}
-	
+	public int getComplaintId(String details) throws Exception
+	{	System.out.println("{dsdsds}");
+		
+		Complaint theComplaint;
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		int complaintId;
+		
+		try
+		{
+			myConn = dataSource.getConnection();	
+			String sql = "select cid from complaint where details=?";
+			myStmt	=	myConn.prepareStatement(sql);
+			myStmt.setString(1, details);
+			myRs = myStmt.executeQuery();
+			if (myRs.next())
+			{
+				complaintId = myRs.getInt("cid");
+			}							
+			else
+			{
+				throw new Exception("Could not find complaint id");
+			}
+			
+			return complaintId;
+		}
+		finally
+		{
+			close(myConn,myStmt,myRs);
+		}
+	}
 }
 
