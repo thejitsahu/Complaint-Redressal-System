@@ -43,6 +43,7 @@ public class LoginServlet extends HttpServlet
 		try
 		{
 			String user,pass;
+			int id;
 			boolean isAuth=false;
 			user = request.getParameter("username");
 			pass = request.getParameter("password");
@@ -51,6 +52,9 @@ public class LoginServlet extends HttpServlet
 			{	System.out.println("Vimal");
 				HttpSession session = request.getSession();
 				session.setAttribute("name", user);
+				id = userDbUtil.getUserId(user);
+				System.out.println(id);
+				session.setAttribute("uid", id);
 				response.sendRedirect("/complaint/ComplaintControllerServlet");
 			}
 			else

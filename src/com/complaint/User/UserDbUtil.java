@@ -219,4 +219,39 @@ public class UserDbUtil
 			close(myConn,myStmt,myRs);
 		}
 	}
+
+ 	public int getUserId(String user) throws Exception
+	{
+		User theUser;
+	//	String username;
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		ResultSet myRs = null;
+		int userId;
+		
+		try
+		{
+			
+			myConn = dataSource.getConnection();	
+			String sql = "select id from user where username=?";
+			myStmt	=	myConn.prepareStatement(sql);
+			myStmt.setString(1, user);
+			myRs = myStmt.executeQuery();
+			if (myRs.next())
+			{
+				userId = myRs.getInt("id");
+			}
+			else
+			{
+				throw new Exception("Could not find engineer id: "+user);
+			}
+			
+			return userId;
+		}
+		finally
+		{
+			close(myConn,myStmt,myRs);
+		}
+	
+	}
 }
