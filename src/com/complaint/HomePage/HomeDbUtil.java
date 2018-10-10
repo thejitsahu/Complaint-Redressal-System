@@ -79,7 +79,7 @@ public class HomeDbUtil
 			String sql = "SELECT complaint.cid,complaint.details,complaint.status,product.serialid,product.name,product.type,product.company,product.warantydate, "
 					+"replacement.rname,replacement.price,engineer.ename "
 					+"FROM complaint " 
-					+"INNER JOIN product "
+					+"LEFT JOIN product "
 					+"ON product.cid=complaint.cid "
 					+"LEFT JOIN replacement "
 					+"ON replacement.cid=complaint.cid "

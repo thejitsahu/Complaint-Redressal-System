@@ -11,8 +11,9 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+//"/add-user-form.jsp",,"/UserControllerServlet"
 
-@WebFilter(urlPatterns={"/add-replacement-form.jsp","/add-engineer-form.jsp","/add-user-form.jsp",
+@WebFilter(urlPatterns={"/add-replacement-form.jsp","/add-engineer-form.jsp",
 		"/update-engineer-form.jsp","/list-engineers.jsp","/update-replacement-form.jsp","/list-replacements.jsp","/list-users.jsp"
 		,"/EngineerControllerServlet","/ReplacementControllerServlet"})
 public class AuthenticationFilter implements Filter 
@@ -32,7 +33,7 @@ public class AuthenticationFilter implements Filter
 			String name = (String)session.getAttribute("name");
 			System.out.println("Avengers");
 			System.out.println(name);
-			if((!name.equals("vimal"))&&name!=null)
+			if((!name.equals("vimal"))&&name.equals(""))
 			{
 				response.sendRedirect(loginURI);
 			

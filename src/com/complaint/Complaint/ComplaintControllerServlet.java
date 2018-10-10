@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+
 @WebServlet("/ComplaintControllerServlet")
 public class ComplaintControllerServlet extends HttpServlet 
 {
@@ -132,7 +133,7 @@ public class ComplaintControllerServlet extends HttpServlet
 		Complaint theComplaint	=	new Complaint(userId,details);
 		complaintDbUtil.addComplaint(theComplaint); 
 		session.setAttribute("Details", details);
-		listComplaints(request,response);
+		//listComplaints(request,response);
 		
 	}
 }

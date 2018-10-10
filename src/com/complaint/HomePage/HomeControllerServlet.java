@@ -42,21 +42,20 @@ public class HomeControllerServlet extends HttpServlet
 		String admin=(String)session.getAttribute("name");
 		try
 		{
-			if(!admin.equals("vimal"))
-			{
-				List<Home> homes=homeDbUtil.getHome(uid);
-				request.setAttribute("HOME_LIST", homes);
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/list-homes.jsp");
-				dispatcher.forward(request, response);
-			}
-			else
+			if(admin.equals("vimal"))
 			{
 				List<Home> homes=homeDbUtil.getHome();
 				request.setAttribute("HOME_LIST", homes);
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/list-homes.jsp");
 				dispatcher.forward(request, response);
 			}
-			
+			else
+			{
+				List<Home> homes=homeDbUtil.getHome(uid);
+				request.setAttribute("HOME_LIST", homes);
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/list-homes.jsp");
+				dispatcher.forward(request, response);
+			}
 		}
 		catch(Exception exc)
 		{

@@ -10,5 +10,6 @@
 <label>Password:</label><input type="password" name="password" /><br />
 <input type="submit" value="Login" />
 </form>
+<p align="center"><a href="/complaint/add-user-form.jsp">Register</a></p>
 </body>
 </html>

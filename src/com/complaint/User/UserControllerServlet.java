@@ -10,6 +10,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 @WebServlet("/UserControllerServlet")
@@ -99,7 +100,16 @@ public class UserControllerServlet extends HttpServlet
 		String password = request.getParameter("password");
 		User theUser = new User(id,email,name,password);
 		userDbUtil.updateUser(theUser);
-		listUsers(request,response);
+		HttpSession session = request.getSession();
+		String admin = (String)session.getAttribute("name");
+		if(admin.equals("vimal"))
+		{	
+			listUsers(request,response);
+		}
+		else
+		{
+			response.sendRedirect("/complaint/HomeControllerServlet");
+		}
 	}
 	
 	private void loadUser(HttpServletRequest request, HttpServletResponse response) throws Exception 
@@ -117,13 +127,22 @@ public class UserControllerServlet extends HttpServlet
 		String email  = request.getParameter("email");
 		String password1  = request.getParameter("password1");
 		String password2  = request.getParameter("password2");
+		HttpSession session = request.getSession();
+		String admin = (String)session.getAttribute("name");
 		if(password1.equals(password2))
 		{
+			
 			User theUser	=	new User(email,name,password1);
 			userDbUtil.addUser(theUser); 
-			listUsers(request,response);
+			if(admin.equals("vimal"))
+			{
+				listUsers(request,response);
+			}
+			else if(admin.equals(""))
+			{
+				response.sendRedirect("/complaint/login.jsp");
+			}
 		}
-		else
-			listUsers(request,response);
+
 	}
 }

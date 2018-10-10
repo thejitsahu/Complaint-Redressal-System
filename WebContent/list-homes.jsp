@@ -24,9 +24,10 @@
 	</tr>
 	<c:forEach var="temp" items="${HOME_LIST}">
 	<tr>
-		<td>${temp.cid} </td>
-		<td>${temp.details} </td>
-		<td>${temp.status} </td>
+		<td>${temp.cid}</td>
+		<td>${temp.details}</td>
+		<td>${temp.status}</td>
+		<td>${temp.serialId}</td>
 		<td>${temp.name}</td>
 		<td>${temp.type}</td>
 		<td>${temp.company}</td>
