@@ -202,7 +202,8 @@ private DataSource dataSource;
 			
 			myStmt.setInt(1, complaintId);
 			
-			myStmt.execute();
+	
+	myStmt.execute();
 		}
 		finally
 		{

@@ -37,7 +37,7 @@ public class EngineerDbUtil
 			{
 				int id = myRs.getInt("eid");
 				int cid = myRs.getInt("cid");
-				String name = myRs.getString("name");
+				String name = myRs.getString("ename");
 						
 				Engineer tempEngineer = new Engineer(id,cid,name);
 				engineers.add(tempEngineer);
@@ -81,7 +81,7 @@ public class EngineerDbUtil
 			myConn = dataSource.getConnection();
 			
 			String sql = "insert into engineer"
-						+"(name)"
+						+"(ename)"
 						+"values (?)";
 			
 			myStmt = myConn.prepareStatement(sql);
@@ -114,7 +114,7 @@ public class EngineerDbUtil
 			myRs = myStmt.executeQuery();
 			if (myRs.next())
 			{
-				String name = myRs.getString("name");
+				String name = myRs.getString("ename");
 				int cid = myRs.getInt("cid");
 				theEngineer = new Engineer(engineerId,cid,name);
 			}
@@ -139,7 +139,7 @@ public class EngineerDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update engineer "
-					+"set name=?, cid=? "
+					+"set ename=?, cid=? "
 					+" where eid = ?";
 		myStmt	=	myConn.prepareStatement(sql);
 		myStmt.setString(1,theEngineer.getName());

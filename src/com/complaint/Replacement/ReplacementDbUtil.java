@@ -37,7 +37,7 @@ public class ReplacementDbUtil
 			{
 				int id = myRs.getInt("rid");
 				int cId = myRs.getInt("cid");
-				String name = myRs.getString("name");
+				String name = myRs.getString("rname");
 				int price = myRs.getInt("price");		
 				Replacement tempReplacement = new Replacement(id,cId,name,price);
 				replacements.add(tempReplacement);
@@ -81,7 +81,7 @@ public class ReplacementDbUtil
 			myConn = dataSource.getConnection();
 			
 			String sql = "insert into replacement"
-						+"(name,price)"
+						+"(rname,price)"
 						+"values (?,?)";
 			
 			myStmt = myConn.prepareStatement(sql);
@@ -116,7 +116,7 @@ public class ReplacementDbUtil
 			if (myRs.next())
 			{
 				int cId = myRs.getInt("cid");
-				String name = myRs.getString("name");
+				String name = myRs.getString("rname");
 				int price = myRs.getInt("price");
 				theReplacement = new Replacement(replacementId,cId,name,price);
 			}
@@ -141,7 +141,7 @@ public class ReplacementDbUtil
 		{
 		myConn	=	dataSource.getConnection();
 		String sql = "update replacement "
-					+"set cid=?, name=?, price=?"
+					+"set cid=?, rname=?, price=?"
 					+" where rid =?";
 		myStmt	=	myConn.prepareStatement(sql);
 		myStmt.setInt(1,theReplacement.getcId());

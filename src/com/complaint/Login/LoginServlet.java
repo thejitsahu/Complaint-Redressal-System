@@ -56,7 +56,7 @@ public class LoginServlet extends HttpServlet
 				id = userDbUtil.getUserId(user);
 				System.out.println(id);
 				session.setAttribute("uid", id);
-				response.sendRedirect("/complaint/ComplaintControllerServlet");
+				response.sendRedirect("/complaint/HomeControllerServlet");
 			}
 			else
 			{
