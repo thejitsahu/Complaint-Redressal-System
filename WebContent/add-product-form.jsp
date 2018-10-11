@@ -4,41 +4,61 @@
 </head>
 <body>
  <h2>Complaint Management</h2>
- <h3>Add Product</h3>
  <%@include file="navbar.jsp" %><br />
- <form action="StudentControllerServlet" method="POST">
+ <div class="container">
+ <h3>Add Product</h3>
+ 
+ <form action="StudentControllerServlet" class="form-horizontal" method="POST">
  <input type="hidden" name = "command" value="ADD" />
- <table>
- <tbody>
- <tr>
- <td><label>SerialID:</label></td>
- <td><input type="text" name="serialId" /></td>
- </tr>
- <tr>
- <td><label>Name:</label></td>
- <td><input type="text" name="name" /></td>
- </tr>
- <tr>
- <td><label>Type</label></td>
- <td><input type="text" name="type" /></td>
- </tr>
- <tr>
- <td><label>Company:</label></td>
- <td><input type="text" name="company" /></td>
- </tr>
- <tr>
- <td><label>Waranty Date:</label></td>
- <td><input type="text" name="warantyDate" /></td>
- </tr>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-2">
+ <label><b>SerialID</b></label>
+ </div>
+ <div class="col-6">
+ <input type="text" class="form-control" name="serialId" />
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2">
+  <label><b>Name</b></label>
+  </div>
+  <div class="col-6">
+ <input type="text" class="form-control" name="name" />
+ </div>
+ </div><br />
+  <div class="row">
+ <div class="col-2">
+  <label><b>Type</b></label>
+  </div>
+  <div class="col-6">
+ <input type="text" class="form-control" name="type" />
+ </div>
+ </div><br />
+  <div class="row">
+ <div class="col-2">
+  <label><b>Company</b></label>
+  </div>
+  <div class="col-6">
+ <input type="text" class="form-control" name="company" />
+ </div>
+ </div><br />
+  <div class="row">
+ <div class="col-2">
+  <label><b>WarantyDate</b></label>
+  </div>
+  <div class="col-6">
+ <input type="text" class="form-control" name="warantyDate" />
+ </div>
+ </div><br />
+<div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div><br />
  </form>
  <p>
  <a href="StudentControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>

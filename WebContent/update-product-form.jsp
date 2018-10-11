@@ -1,45 +1,66 @@
 <html>
 <head>
-<title>Add Student</title>
+<title>Update Product</title>
 </head>
 <body>
- <h2>FooBar University</h2>
- <h3>Update Student</h3>
+ <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
- <form action="StudentControllerServlet" method="GET">
+ <div class="container">
+ <h3>Update Product</h3>
+ 
+ <form action="StudentControllerServlet" class="form-horizontal" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theProductId" value="${THE_PRODUCT.serialId }" />
- <table>
- <tbody>
- <tr>
- <td><label>CustomerID:</label></td>
- <td><input type="text" name="cId" value="${THE_PRODUCT.cId}"/></td>
- </tr>
- <tr>
- <td><label>Name:</label></td>
- <td><input type="text" name="name" value="${THE_PRODUCT.name}"/></td>
- </tr>
- <tr>
- <td><label>Type:</label></td>
- <td><input type="text" name="type" value="${THE_PRODUCT.type}"/></td>
- </tr>
- <tr>
- <td><label>Company:</label></td>
- <td><input type="text" name="company" value="${THE_PRODUCT.company}"/></td>
- </tr>
- <tr>
- <td><label>Waranty Date:</label></td>
- <td><input type="text" name="warantyDate" value="${THE_PRODUCT.warantyDate}"/></td>
- </tr>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-2">
+ <label><b>CustomerID</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" class="form-control" name="cId" value="${THE_PRODUCT.cId}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2">
+ <label><b>Name</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" class="form-control" name="name" value="${THE_PRODUCT.name}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2"> 
+ <label><b>Type</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="type" class="form-control" value="${THE_PRODUCT.type}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2"> 
+ <label><b>Company</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="company" class="form-control" value="${THE_PRODUCT.company}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2"> 
+ <label><b>Type</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="warantyDate" class="form-control" value="${THE_PRODUCT.warantyDate}"/>
+ </div>
+ </div><br />
+ 
+ <div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div>
  </form>
  <p>
  <a href="StudentControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>

@@ -1,39 +1,46 @@
 <html>
 <head>
-<title>Add Student</title>
+<title>Update Complaint</title>
 </head>
 <body>
- <h2>Complaint Tracker App</h2>
- <h3>Update Complaint</h3>
+ <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
- <form action="ComplaintControllerServlet" method="GET">
+ <div class="container">
+ <h3>Update Complaint</h3>
+ <form action="ComplaintControllerServlet" class="form-horizontal" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theComplaintId" value="${THE_COMPLAINT.cId }" />
- <table>
- <tbody>
- <tr>
- <td><label>Details:</label></td>
- <td><input type="text" name="details" value="${THE_COMPLAINT.details}"/></td>
- </tr>
+ <div class="row">
+ <div class="col-2">
+ <label><b>Details</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" class="form-control" name="details" value="${THE_COMPLAINT.details}"/></td>
+ </div>
+ </div><br />
 <c:set var="VIMAL" value="vimal" />
 <c:set var="USER" value="${sessionScope.name}" />
 <c:choose>
 <c:when test="${VIMAL eq USER}">
- <tr>
- <td><label>Status:</label></td>
- <td><input type="text" name="status" value="${THE_COMPLAINT.status}"/></td>
- </tr>
+<div class="row">
+<div class="col-2">
+<label><b>Status</b></label>
+</div>
+<div class="col-5">
+ <input type="text" name="status" class="form-control" value="${THE_COMPLAINT.status}"/>
+ </div>
+ </div><br />
  </c:when>
  </c:choose>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div>
  </form>
  <p>
  <a href="ComplaintControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Complaint Tracker App</title>
+	<title>Complaint Management</title>
 </head>
 <body>
 <h2>Complaint Management</h2>

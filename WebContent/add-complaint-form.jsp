@@ -13,8 +13,8 @@
 <div class="col-2">
 <label for="det"><b></>Details</b>  </label>  
 </div>
-<div class="col-6">
-<input type="text" id="det" class="form-control col-5" placeholder="details" name="details" /> 
+<div class="col-5">
+<input type="text" id="det" class="form-control" placeholder="details" name="details" /> 
 </div>
 </div><br />
 <div class="row">

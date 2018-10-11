@@ -1,37 +1,48 @@
 <html>
 <head>
-<title>Add Student</title>
+<title>Update User</title>
 </head>
 <body>
- <h2>Complaint Tracker App</h2>
- <h3>Update User</h3>
+ <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
- <form action="UserControllerServlet" method="GET">
+ <div class="container">
+ <h3>Update User</h3>
+ <form action="UserControllerServlet" class="form-horizontal" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theUserId" value="${THE_USER.id }" />
- <table>
- <tbody>
- <tr>
- <td><label>Username:</label></td>
- <td><input type="text" name="username" value="${THE_USER.username}"/></td>
- </tr>
- <tr>
- <td><label>Email:</label></td>
- <td><input type="text" name="email" value="${THE_USER.email}"/></td>
- </tr>
- <tr>
- <td><label>Password:</label></td>
- <td><input type="password" name="password" value="${THE_USER.password}"/></td>
- </tr>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-2">
+ <label><b>Username</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="username" class="form-control" value="${THE_USER.username}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2">
+ <label><b>Email</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="email" class="form-control" value="${THE_USER.email}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2">
+ <label><b>Password</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="password" class="form-control" value="${THE_USER.password}"/>
+ </div>
+ </div><br />
+<div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div>
  </form>
  <p>
  <a href="ComplaintControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>

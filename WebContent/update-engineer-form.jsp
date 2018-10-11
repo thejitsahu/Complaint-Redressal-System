@@ -1,34 +1,40 @@
 <html>
 <head>
-<title>Add Student</title>
+<title>Update Engineer</title>
 </head>
 <body>
- <h2>FooBar University</h2>
- <h3>Update Student</h3>
+ <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
- <form action="EngineerControllerServlet" method="GET">
+ <div class="container">
+ <h3>Update Engineer</h3>
+ <form action="EngineerControllerServlet" class="form-horizontal" method="GET">
  <input type="hidden" name = "command" value="UPDATE" />
  <input type="hidden" name = "theEngineerId" value="${THE_ENGINEER.eId }" />
- <table>
- <tbody>
- <tr>
- <td><label>CustomerID:</label></td>
- <td><input type="text" name="cId" value="${THE_ENGINEER.cId}"/></td>
- </tr>
-
- <tr>
- <td><label>Name:</label></td>
- <td><input type="text" name="name" value="${THE_ENGINEER.name}"/></td>
- </tr>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-2">
+ <label><b>CustomerID</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="cId" class="form-control" value="${THE_ENGINEER.cId}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-2">
+ <label><b>Name</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" name="name" class="form-control" value="${THE_ENGINEER.name}"/>
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div>
  </form>
  <p>
  <a href="EngineerControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>

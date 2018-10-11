@@ -4,25 +4,28 @@
 </head>
 <body>
  <h2>Complaint Management</h2>
- <h3>Add Engineer</h3>
  <%@include file="navbar.jsp" %><br />
- <form action="EngineerControllerServlet" method="POST">
+ <div class="container">
+ <h3>Add Engineer</h3>
+ <form action="EngineerControllerServlet" class="form-horizontal" method="POST">
  <input type="hidden" name = "command" value="ADD" />
- <table>
- <tbody>
- <tr>
- <td><label>Name:</label></td>
- <td><input type="text" name="name" /></td>
- </tr>
- <tr>
- <td><label></label></td>
- <td><input type="submit" value="Save" /></td>
- </tr>
- </tbody>
- </table>
+ <div class="row">
+ <div class="col-2">
+ <label><b>Name</b></label>
+ </div>
+ <div class="col-5">
+ <input type="text" class="form-control" name="name" />
+ </div>
+ </div><br />
+ <div class="row">
+ <div class="col-8 mx-auto">
+ <input type="submit" class="btn btn-primary" value="Save" />
+ </div>
+ </div>
  </form>
  <p>
  <a href="EngineerControllerServlet">Back to List</a>
  </p>
+ </div>
 </body>
 </html>
