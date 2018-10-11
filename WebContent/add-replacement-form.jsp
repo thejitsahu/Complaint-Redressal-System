@@ -3,7 +3,6 @@
 <title>Add Replacement</title>
 </head>
 <body>
- <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
  <div class="container">
  <h3>Add Replacement</h3>

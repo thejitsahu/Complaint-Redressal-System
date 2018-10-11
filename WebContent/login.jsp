@@ -3,13 +3,43 @@
 <title>Login</title>
 </head>
 <body>
-<h2>Welcome to login page</h2>
+<%@include file="navbar.jsp" %><br />
+<div class="container">
+<h2><p class="text-center text-success">Complaint Management System</p></h2>
 <hr />
-<form  action="LoginServlet" method="GET">
-<label>Username:</label><input type="text" name="username" /><br />
-<label>Password:</label><input type="password" name="password" /><br />
-<input type="submit" value="Login" />
+
+<div class="col-6 mx-auto my-auto">
+<div class="card card-block">
+ <div class="card-header text-center bg-info"><b>Login</b></div>
+ <p class="card-body">
+ <form  action="LoginServlet" class="form-horizontal" method="GET">
+<div class="row">
+<div class="col-1 mx-auto">
+<label><b>Username</b></label>
+</div>
+<div class="col-5 mx-auto">
+<input type="text" class="form-control" autofocus name="username" />
+</div>
+</div><br />
+<div class="row">
+<div class="col-1 mx-auto">
+<label><b>Password</b></label>
+</div>
+<div class="col-5 mx-auto">
+<input type="password" class="form-control" name="password" />
+</div>
+</div><br />
+<div class="row">
+<div class="col-2 mx-auto">
+<input type="submit" class="btn btn-primary" value="Login" />
+</div>
+</div>
 </form>
-<p align="center"><a href="/complaint/add-user-form.jsp">Register</a></p>
+<p class="text-center"><a href="/complaint/add-user-form.jsp">Register</a></p>
+ </p>
+ </div>
+ </div>
+ </div>
 </body>
 </html>
+

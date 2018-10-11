@@ -3,7 +3,6 @@
 <title>Add User</title>
 </head>
 <body>
- <h2>Complaint Management</h2>
  <%@include file="navbar.jsp" %><br />
  <div class="container">
  <h3>Add User</h3>

@@ -12,10 +12,8 @@
 </head>
 <body>
 <div class="container">
-<%
-session = request.getSession();
-String a = (String)session.getAttribute("name");
-%> 
+<h2>Complaint Management</h2>
+ 
 <c:set var="VIMAL" value="vimal" />
 <c:set var="USER" value="${sessionScope.name}" />
 <c:set var="UID" value="${sessionScope.uid}" />

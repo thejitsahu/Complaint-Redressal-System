@@ -3,8 +3,7 @@
 <title>Add Complaint</title>
 </head>
 <body>
- <h2>Complaint Management</h2>
- <%@include file="navbar.jsp" %><br />
+  <%@include file="navbar.jsp" %><br />
  <div class="container">
  <h3>Add Complaint</h3>
  <form action="ComplaintControllerServlet" class="form-horizontal" method="POST">

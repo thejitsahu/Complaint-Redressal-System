@@ -6,7 +6,6 @@
 	<title>Complaint Management</title>
 </head>
 <body>
-<h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
 <div class="container">
 <input type="button" class="btn btn-primary text-right" value="Add Product" onclick="window.location.href='add-product-form.jsp'; return false;" /><br /><br />
