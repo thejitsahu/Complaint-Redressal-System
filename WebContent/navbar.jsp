@@ -1,8 +1,17 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
+
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap/dist/css/bootstrap-theme.min.css">
+<script src="jquery-3.3.1.min.js"></script>
+<script src="popper.min.js"></script>
+<script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    
+
 </head>
 <body>
+<div class="container">
 <%
 session = request.getSession();
 String a = (String)session.getAttribute("name");
@@ -34,5 +43,6 @@ String a = (String)session.getAttribute("name");
 <a href="/complaint/LogoutServlet">Logout</a>
 </c:otherwise>
 </c:choose>
+</div>
 </body>
 </html>

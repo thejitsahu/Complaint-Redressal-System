@@ -8,7 +8,9 @@
 <body>
 <h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
-<table>
+<div class="container">
+
+<table class="table table-striped table-hover">
 	<tr>
 		<th>ComplaintID</th>
 		<th>Details</th>
@@ -38,5 +40,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>

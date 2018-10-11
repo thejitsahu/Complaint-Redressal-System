@@ -8,14 +8,15 @@
 <body>
 <h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
-<input type="button" value="Add Replacement" onclick="window.location.href='add-replacement-form.jsp'; return false;" />
-<table>
+<div class="container">
+<input type="button" class="btn btn-primary" value="Add Replacement" onclick="window.location.href='add-replacement-form.jsp'; return false;" /><br /><br />
+<table class="table table-striped table-hover">
 	<tr>
 		<th>ID</th>
-		<th>CustomerID</th>
+		<th>ComplaintID</th>
 		<th>Name</th>
 		<th>Price</th>
-		
+		<th>Action</th>
 	</tr>
 	<c:forEach var="temp" items="${REPLACEMENT_LIST}">
 	<c:url var="tempLink" value="ReplacementControllerServlet">
@@ -41,5 +42,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>

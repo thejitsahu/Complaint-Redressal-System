@@ -8,12 +8,14 @@
 <body>
 <h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
-<input type="button" value="Add User" onclick="window.location.href='add-user-form.jsp'; return false;" />
-<table>
+<div class="container">
+<input type="button" class="btn btn-primary" value="Add User" onclick="window.location.href='add-user-form.jsp'; return false;" /><br /><br />
+<table class="table table-striped table-hover">
 	<tr>
 		<th>ID</th>
 		<th>EmailID</th>
 		<th>Name</th>
+		<th>Action</th>
 		</tr>
 	<c:forEach var="temp" items="${USER_LIST}">
 	<c:url var="tempLink" value="UserControllerServlet">
@@ -38,5 +40,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>

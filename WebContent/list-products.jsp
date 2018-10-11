@@ -8,15 +8,17 @@
 <body>
 <h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
-<input type="button" value="Add Product" onclick="window.location.href='add-product-form.jsp'; return false;" />
-<table>
+<div class="container">
+<input type="button" class="btn btn-primary text-right" value="Add Product" onclick="window.location.href='add-product-form.jsp'; return false;" /><br /><br />
+<table class="table table-striped table-hover">
 	<tr>
 		<th>SerialID</th>
-		<th>CustomerID</th>
+		<th>ComplaintID</th>
 		<th>Name</th>
 		<th>Type</th>
 		<th>Company</th>
 		<th>Waranty Date</th>
+		<th>Action</th>
 	</tr>
 	<c:forEach var="temp" items="${PRODUCT_LIST}">
 	<c:url var="tempLink" value="StudentControllerServlet">
@@ -44,5 +46,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>

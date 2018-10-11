@@ -8,12 +8,14 @@
 <body>
 <h2>Complaint Management</h2>
 <%@include file="navbar.jsp" %><br />
-<input type="button" value="Add Complaint" onclick="window.location.href='add-complaint-form.jsp'; return false;" />
-<table>
+<div class="container">
+<input type="button" class="btn btn-primary" value="Add Complaint" onclick="window.location.href='add-complaint-form.jsp'; return false;" /><br /><br />
+<table class="table table-striped table-hover">
 	<tr>
 		<th>ComplaintID</th>
 		<th>Details</th>
 		<th>Status</th>
+		<th>Action</th>
 	</tr>
 	<c:forEach var="temp" items="${COMPLAINT_LIST}">
 	<c:url var="tempLink" value="ComplaintControllerServlet">
@@ -38,5 +40,6 @@
 	</tr>
 	</c:forEach>
 </table>
+</div>
 </body>
 </html>
