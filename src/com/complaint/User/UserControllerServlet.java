@@ -128,11 +128,17 @@ public class UserControllerServlet extends HttpServlet
 		String password1  = request.getParameter("password1");
 		String password2  = request.getParameter("password2");
 		HttpSession session = request.getSession();
-		String admin = (String)session.getAttribute("name");
+		String admin;
+		User theUser;
+		admin = (String)session.getAttribute("name");
+		if(admin==null)
+		{
+			admin="";
+		}
 		if(password1.equals(password2))
 		{
 			
-			User theUser	=	new User(email,name,password1);
+			theUser	=	new User(email,name,password1);
 			userDbUtil.addUser(theUser); 
 			if(admin.equals("vimal"))
 			{

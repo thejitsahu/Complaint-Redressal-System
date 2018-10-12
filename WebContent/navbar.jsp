@@ -12,11 +12,13 @@
 </head>
 <body>
 <div class="container">
-<h2>Complaint Management</h2>
- 
 <c:set var="VIMAL" value="vimal" />
 <c:set var="USER" value="${sessionScope.name}" />
 <c:set var="UID" value="${sessionScope.uid}" />
+<c:if test="${not empty USER}">
+<h2>Complaint Management</h2>
+<hr />
+</c:if>
 <c:choose>
 <c:when test="${VIMAL eq USER}">
 <a href="/complaint/HomeControllerServlet">Home</a>

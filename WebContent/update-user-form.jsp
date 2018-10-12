@@ -30,7 +30,7 @@
  <label><b>Password</b></label>
  </div>
  <div class="col-5">
- <input type="text" name="password" class="form-control" value="${THE_USER.password}"/>
+ <input type="password" name="password" class="form-control" value="${THE_USER.password}"/>
  </div>
  </div><br />
 <div class="row">

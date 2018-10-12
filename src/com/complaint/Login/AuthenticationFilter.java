@@ -11,11 +11,11 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-//"/add-user-form.jsp",,"/UserControllerServlet"
+//"/add-user-form.jsp",
 
 @WebFilter(urlPatterns={"/add-replacement-form.jsp","/add-engineer-form.jsp",
 		"/update-engineer-form.jsp","/list-engineers.jsp","/update-replacement-form.jsp","/list-replacements.jsp","/list-users.jsp"
-		,"/EngineerControllerServlet","/ReplacementControllerServlet"})
+		,"/EngineerControllerServlet","/ReplacementControllerServlet","/UserControllerServlet","/StudentControllerServlet","/HomeControllerServlet"})
 public class AuthenticationFilter implements Filter 
 {
 	public void init(FilterConfig fConfig) throws ServletException 
@@ -33,10 +33,14 @@ public class AuthenticationFilter implements Filter
 			String name = (String)session.getAttribute("name");
 			System.out.println("Avengers");
 			System.out.println(name);
-			if((!name.equals("vimal"))&&name.equals(""))
+			if(!(name.equals("vimal")))
 			{
 				response.sendRedirect(loginURI);
 			
+			}
+			else if(name.equals(""))
+			{
+				response.sendRedirect(loginURI);
 			}
 			else
 			{

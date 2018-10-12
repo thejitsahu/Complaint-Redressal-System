@@ -30,7 +30,7 @@
  <label><b>Password</b></label>
  </div>
  <div class="col-5">
- <input type="text"  class="form-control" name="passowrd1" />
+ <input type="password"  class="form-control" name="password1" />
  </div>
  </div><br />
  <div class="row">
@@ -38,7 +38,7 @@
  <label><b>Confirm Passsword</b></label>
  </div>
  <div class="col-5">
- <input type="text"  class="form-control" name="password2" />
+ <input type="password"  class="form-control" name="password2" />
  </div>
  </div><br />
 <div class="row">
