@@ -33,15 +33,12 @@ public class AuthenticationFilter implements Filter
 			String name = (String)session.getAttribute("name");
 			System.out.println("Avengers");
 			System.out.println(name);
-			if(!(name.equals("vimal")))
+			if((name.equals("")))
 			{
 				response.sendRedirect(loginURI);
 			
 			}
-			else if(name.equals(""))
-			{
-				response.sendRedirect(loginURI);
-			}
+			
 			else
 			{
 				chain.doFilter(request, response);
