@@ -112,19 +112,36 @@ public class StudentControllerServlet extends HttpServlet {
 	private void addProduct(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
 		javax.servlet.http.HttpSession session = request.getSession();
-		String details =(String) session.getAttribute("Details");
+		Product theProduct;
+		String details;
+		details =(String) session.getAttribute("Details");
+		System.out.println("Details :"+ details);
 		int cid;
-		cid = complaintDbUtil.getComplaintId(details);
-		System.out.println("cid"+cid);
+		if(details==null)
+		{
+			details = "";
+		}
 		int serialId = Integer.parseInt(request.getParameter("serialId"));
 		String name  = request.getParameter("name");
 		String type     = request.getParameter("type");
 		String company     = request.getParameter("company");
 		String warantyDate     = request.getParameter("warantyDate");
-		
-		Product theProduct	=	new Product(serialId,cid,name,type,company,warantyDate);
-		
-		productDbUtil.addProduct(theProduct); 
+		System.out.println("hello");
+		if(details.equals(""))
+		{   
+			
+			theProduct	=	new Product(serialId,name,type,company,warantyDate);
+			productDbUtil.addProduct2(theProduct);
+		}
+		else
+		{
+			System.out.println("hellobatman");
+			cid = complaintDbUtil.getComplaintId(details);
+			theProduct	=	new Product(serialId,cid,name,type,company,warantyDate);
+			productDbUtil.addProduct1(theProduct);
+			session.removeAttribute("Details");
+		}
+		 
 		
 		listProducts(request,response);
 		

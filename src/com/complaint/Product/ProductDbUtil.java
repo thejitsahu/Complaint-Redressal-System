@@ -77,7 +77,7 @@ public class ProductDbUtil
 		}
 	}
 	
-	public void addProduct(Product theProduct) throws Exception
+	public void addProduct1(Product theProduct) throws Exception
 	{
 		Connection myConn = null;
 		PreparedStatement myStmt = null;
@@ -99,6 +99,37 @@ public class ProductDbUtil
 			myStmt.setString(4,theProduct.getType());
 			myStmt.setString(5,theProduct.getCompany());
 			myStmt.setString(6,theProduct.getWarantyDate());
+			
+			myStmt.execute();
+		}
+		finally
+		{
+			close(myConn,myStmt,null);
+		}
+	}
+	
+	public void addProduct2(Product theProduct) throws Exception
+	{
+		Connection myConn = null;
+		PreparedStatement myStmt = null;
+		try
+		{
+			
+			
+			myConn = dataSource.getConnection();
+			
+			String sql = "insert into product"
+						+"(serialid,name,type,company,warantydate)"
+						+"values (?,?,?,?,?)";
+			
+			myStmt = myConn.prepareStatement(sql);
+			
+			myStmt.setInt(1,theProduct.getSerialId());
+			
+			myStmt.setString(2,theProduct.getName());
+			myStmt.setString(3,theProduct.getType());
+			myStmt.setString(4,theProduct.getCompany());
+			myStmt.setString(5,theProduct.getWarantyDate());
 			
 			myStmt.execute();
 		}
@@ -136,7 +167,7 @@ public class ProductDbUtil
 			}
 			else
 			{
-				throw new Exception("Could not find student id: "+productId);
+				throw new Exception("Could not find product id: "+productId);
 			}
 			
 			return theProduct;
