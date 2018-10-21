@@ -1,0 +1,5 @@
+WebContent/bootstrap/* linguist-detectable=false
+WebContent/css/* linguist-detectable=false
+WebContent/img/* linguist-detectable=false
+WebContent/jquery-3.3.1.min.js linguist-detectable=false
+WebContent/popper.min.js linguist-detectable=false
